@@ -1,14 +1,13 @@
-# .github/workflows/build.yml
 name: Build ROADtoken
 on: [push]
 jobs:
   build:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: microsoft/setup-msbuild@v1
+      - uses: actions/checkout@v4
+      - uses: microsoft/setup-msbuild@v2
       - run: msbuild ROADtoken.sln /p:Configuration=Release
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: ROADtoken
           path: bin\Release\ROADtoken.exe
