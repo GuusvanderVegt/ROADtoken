@@ -6,6 +6,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: microsoft/setup-msbuild@v2
+      - name: Install .NET 4.5.2 Targeting Pack
+        run: |
+          choco install netfx-4.5.2-devpack -y
       - run: msbuild ROADtoken.sln /p:Configuration=Release
       - uses: actions/upload-artifact@v4
         with:
